@@ -1,9 +1,8 @@
-# FoldingWIthRotamerAndGA
-Protein folding with local propensity using GA
+# FoldingWIthRotamerAndGA: Protein folding with local propensity using GA
 
 This work presents a set of scripts used to evaluate the usefulness of rotamer libraries to predict protein folding. The most important feature of this strategy is the possibility of modelling protein folding without explicitly treating every atom in the problem. Here I try to evaluate the importance or relevance of two  empirical energy function to predict the folding. These functions are defined using potentials extracted from Ramachandran plots (Ramakrishann 1965), studies of this plots (McCammon 1984) show that they reflect the local interactions of free energy. The protein conformation is determined from a balance between local interactions (in each amino acid) and non-local ones encoded in the protein potential energy function as statistical potentials. I explored two approximations to the free energy landscape of several proteins using the Genetic Algorithm optimization solver available in the Matlab Optimization Toolbox, trying predict a stable conformation based on the proteins first base. For that several proteins (2FKL, 1PEN, 1NOT, 1FXD) were selected from the PDB, extracting its first base, the Ramachandran plot for each of its residuum were computed and used them to approximate the protein free energy landscape. Here this empirical energy is used as a fitness function in a Genetic Algorithm Optimization procedure to predict the dihedral angles for a minimum energy conformation. For evaluate the quality of this prediction, the predict dihedral angles are compared to the protein native values. I used for similarity measurement the mean square error (MSE) between the vector of predicted dihedral angles and the value of this angles in a stable conformation.
 
-The project is described by 2 scripts in Python, 1 MatLab script and 1 Matlab function. We used python on the data prepossecung and the MatLab to GA optimization (https://github.com/MelroLeandro/FoldingWIthRotamerAndGA.git):
+The project is described by 2 scripts in Python, 1 MatLab script and 1 Matlab function. We used python on the data prepossessing and the MatLab to GA optimization (https://github.com/MelroLeandro/FoldingWIthRotamerAndGA.git):
 
 
  -  Extract_tests.py,is locate in the folder ./test and it is used to extract the protein 1º base and dihedral angles from a pdb file format.
@@ -11,7 +10,7 @@ The project is described by 2 scripts in Python, 1 MatLab script and 1 Matlab fu
  - Protein_stable_multistate.m is the script used to predict protein folding using GA. This scripts reads a 1º base sequences and dihedral angles from folder .  and uses data in the folder ./top500 for density plots generation.
  -  ObjFun.m is a MatLab function used by  Protein_stable_multistate.m and the GA optimizer to compute the empirical energy surface.
 
-The Python scrips have dependences from libraries numpy, scipy,  matplotlib and BioPython.
+The Python strips have dependences from libraries numpy, scipy,  matplotlib and BioPython.
 
 The results and the auxiliary data are distributed by tree folders . , ./test and ./top500.
 
